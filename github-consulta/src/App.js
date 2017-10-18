@@ -5,15 +5,27 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div id="main">
+            <div className="header">
+              <h1>Consulta de dados - GitHub</h1>
+            </div>
+            <div className="content" id="content">
+              <div className="content__data">
+                  <div className="content__data--block login">
+                    <label htmlFor="login">Login</label>
+                    <input id="login" type="text" name="login" value=""  />
+                  </div>
+                  <div className="content__data--block email">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="email" name="email" value=""  />
+                  </div>
+                  <div className="content__data--button">
+                    <label></label>
+                    <button type="submit" className="content__data--button-search">Buscar</button>
+                  </div>
+              </div>
+            </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
     );
   }
 }
