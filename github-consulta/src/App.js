@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Header from './components/Header';
 
 class App extends Component {
 
@@ -27,9 +27,7 @@ class App extends Component {
     render() {
         return (
             <div id="main">
-                <div className="header">
-                    <h1>Consulta de dados - GitHub</h1>
-                </div>
+                <Header />
                 <div className="content" id="content">
                     <div className="content__data">
                         <div className="content__data--block login">
