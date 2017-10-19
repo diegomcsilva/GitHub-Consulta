@@ -21,7 +21,6 @@ class App extends Component {
                                 return (
                                     <ul>
                                         <li>{result.nome}</li>
-                                        <li>{result.login}</li>
                                     </ul>
                                 );
                             })
