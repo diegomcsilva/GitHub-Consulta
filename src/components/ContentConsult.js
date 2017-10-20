@@ -4,6 +4,7 @@ import ConectGitHub from '../services/ConectGitHub';
 import '../style/css/content.css';
 
 class ContentConsult extends Component {
+
     constructor() {
         super();
         this.state = {lista: [], repos: [], login: '', maior: 0, nomeRepo: ''};
@@ -12,32 +13,42 @@ class ContentConsult extends Component {
         this.setEmail = this.setEmail.bind(this);
     }
 
+    // Consulta as informações no github
     consultInfos(evento) {
+
         evento.preventDefault();
 
-        if (document.getElementById('login').value === "") {
-            document.getElementById('error-login-not-found').style.display = "none";
-            document.getElementById('error-login').style.display = "block";
-        } else {
-            document.getElementById('error-login').style.display = "none";
-            document.getElementById('error-login-not-found').style.display = "none";
-            this.setState({nomeRepo:' '});
-            this.setState({maior:0});
+        // Variáveis mais utilizadas neste bloco
+        var erroLogin = document.getElementById('error-login'),
+            erroLoginNottFound = document.getElementById('error-login-not-found'),
+            statusResult = document.getElementById('deactivated'),
+            setNomeRepo = this.setState({nomeRepo:' '}),
+            setMaiorStar = this.setState({maior:0});
 
-            document.getElementById('img-result').style.display = "none";
-            document.getElementById('login')
-            document.getElementById('deactivated').classList.remove("active");
-            // this.state.maior = 0;
+        // Verificar se o campo está vázio
+        if (document.getElementById('login').value === "") {
+            erroLoginNottFound.style.display = "none";
+            erroLogin.style.display = "block";
+            statusResult.classList.remove("active");
+            setNomeRepo;
+            setMaiorStar;
+        } else {
+            erroLogin.style.display = "none";
+            erroLoginNottFound.style.display = "none";
+            setNomeRepo;
+            setMaiorStar;
+            statusResult.classList.remove("active");
+
+            // Pega o login e faz a consulta no github
             ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
-                // console.log(response.data);
                 this.setState({lista:response.data});
             }.bind(this)).catch(function (erro) {
-                document.getElementById('error-login-not-found').style.display = "block";
+                erroLoginNottFound.style.display = "block";
             });
 
+            // Pega o login e faz a consulta do repositório no github
             ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
-                // console.log(response.data);
-                document.getElementById('deactivated').classList.add("active");
+                statusResult.classList.add("active"),
                 document.getElementById('img-result').style.display = "block";
                 this.setState({repos:response.data});
                 for (var i = 0; i < this.state.repos.length; i++) {
@@ -50,8 +61,8 @@ class ContentConsult extends Component {
                 }
             }.bind(this));
 
-            console.log(this.state.maior);
-            console.log(this.state.nomeRepo);
+            // console.log(this.state.maior);
+            // console.log(this.state.nomeRepo);
         }
 
     }
@@ -62,10 +73,6 @@ class ContentConsult extends Component {
 
     setEmail(evento) {
         this.setState({email:evento.target.value});
-    }
-
-    checkMore() {
-
     }
 
     render() {
@@ -80,10 +87,12 @@ class ContentConsult extends Component {
                     <label></label>
                     <button type="button" className="content__data--button-search" onClick={this.consultInfos}>Buscar</button>
                 </div>
-                <p id="deactivated" className="content__data-text">Repositório mais popular</p>
-                <h3>{this.state.nomeRepo}</h3>
-                <div className="content__data-img">
+                <div id="deactivated">
+                    <p className="content__data-text">Repositório mais popular</p>
+                    <h3>{this.state.nomeRepo}</h3>
+                    <div className="content__data-img">
                     <img id="img-result" src={this.state.lista.avatar_url} />
+                </div>
                 </div>
                 <div id="error-login">Informe o login</div>
                 <div id="error-login-not-found">Login não encotrado</div>

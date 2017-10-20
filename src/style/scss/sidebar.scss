@@ -18,20 +18,44 @@
         background-size: contain;
         background-repeat: no-repeat;
         margin: 0 25% 50px;
+        position: relative;
+        transition: all 1s;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            background-color: none;
+            color: transparent;
+            border-radius: 0px;
+            padding: 0px;
+            transition: all 1s;
+        }
+        &:hover {
+            &:after {
+                content: attr(class);
+                position: absolute;
+                bottom: 0px;
+                background-color: white;
+                color: black;
+                border-radius: 8px;
+                padding: 5px;
+                transition: all 1s;
+            }
+        }
 
-        &.facebook {
+        &.Facebook {
             background-image: url("../../images/facebook.png");
         }
 
-        &.linkedin {
+        &.Linkedin {
             background-image: url("../../images/linkedin.png");
         }
 
-        &.github {
+        &.Github {
             background-image: url("../../images/social-github.png");
         }
 
-        &.homepage {
+        &.Homepage {
             background-image: url("../../images/Logo-page.png");
         }
     }

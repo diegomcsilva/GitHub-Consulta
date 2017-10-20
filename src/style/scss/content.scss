@@ -68,6 +68,10 @@
     }
     #error-login, #error-login-not-found {
         display: none;
+        border-bottom: 1px solid white;
+        padding-bottom: 5px;
+        width: 25%;
+        margin: 30px auto;
     }
 
     #deactivated {
