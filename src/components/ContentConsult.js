@@ -15,36 +15,44 @@ class ContentConsult extends Component {
     consultInfos(evento) {
         evento.preventDefault();
 
-        this.setState({nomeRepo:' '});
-        this.setState({maior:0});
+        if (document.getElementById('login').value === "") {
+            document.getElementById('error-login-not-found').style.display = "none";
+            document.getElementById('error-login').style.display = "block";
+        } else {
+            document.getElementById('error-login').style.display = "none";
+            document.getElementById('error-login-not-found').style.display = "none";
+            this.setState({nomeRepo:' '});
+            this.setState({maior:0});
 
-        document.getElementById('img-result').style.display = "none";
-        document.getElementById('deactivated').classList.remove("active");
-        // this.state.maior = 0;
-        ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
-            // console.log(response.data);
-            this.setState({lista:response.data});
-        }.bind(this)).catch(function (erro) {
-            alert('Login não encontrado');
-        });
+            document.getElementById('img-result').style.display = "none";
+            document.getElementById('login')
+            document.getElementById('deactivated').classList.remove("active");
+            // this.state.maior = 0;
+            ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
+                // console.log(response.data);
+                this.setState({lista:response.data});
+            }.bind(this)).catch(function (erro) {
+                document.getElementById('error-login-not-found').style.display = "block";
+            });
 
-        ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
-            // console.log(response.data);
-            document.getElementById('deactivated').classList.add("active");
-            document.getElementById('img-result').style.display = "block";;
-            this.setState({repos:response.data});
-            for (var i = 0; i < this.state.repos.length; i++) {
-                // console.log(this.state.repos[i].stargazers_count);
-                if ( this.state.repos[i].stargazers_count > this.state.maior ) {
-                    this.state.maior = this.state.repos[i].stargazers_count;
-                    this.state.nomeRepo = this.state.repos[i].name;
-                    this.setState({nomeRepos:this.state.nomeRepo});
+            ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
+                // console.log(response.data);
+                document.getElementById('deactivated').classList.add("active");
+                document.getElementById('img-result').style.display = "block";
+                this.setState({repos:response.data});
+                for (var i = 0; i < this.state.repos.length; i++) {
+                    // console.log(this.state.repos[i].stargazers_count);
+                    if ( this.state.repos[i].stargazers_count > this.state.maior ) {
+                        this.state.maior = this.state.repos[i].stargazers_count;
+                        this.state.nomeRepo = this.state.repos[i].name;
+                        this.setState({nomeRepos:this.state.nomeRepo});
+                    }
                 }
-            }
-        }.bind(this));
+            }.bind(this));
 
-        console.log(this.state.maior);
-        console.log(this.state.nomeRepo);
+            console.log(this.state.maior);
+            console.log(this.state.nomeRepo);
+        }
 
     }
 
@@ -72,11 +80,13 @@ class ContentConsult extends Component {
                     <label></label>
                     <button type="button" className="content__data--button-search" onClick={this.consultInfos}>Buscar</button>
                 </div>
-                <p id="deactivated">Repositório mais popular</p>
+                <p id="deactivated" className="content__data-text">Repositório mais popular</p>
                 <h3>{this.state.nomeRepo}</h3>
-                <div>
+                <div className="content__data-img">
                     <img id="img-result" src={this.state.lista.avatar_url} />
                 </div>
+                <div id="error-login">Informe o login</div>
+                <div id="error-login-not-found">Login não encotrado</div>
             </div>
         )
     }

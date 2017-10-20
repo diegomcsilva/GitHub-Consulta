@@ -2,20 +2,22 @@
     height: 80px;
     width: 100%;
     position: fixed;
-    left: 0px;
-    top: 0px;
-    right: 0px;
+    left: 0;
+    top: 0;
+    right: 0;
     z-index: 10000;
     background-color: #24292e;
     color: rgba(255,255,255,0.75);
     text-align: center;
     display: flex;
     align-items: center;
+
     &__logo-git {
         width: 10%;
         fill: currentColor;
         color: #fff;
     }
+
     h1 {
         width: 80%;
     }

@@ -14,6 +14,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass" : "sass --watch src/style/scss:src/style/css"
+    "sass": "sass --watch src/style/scss:src/style/css"
   }
 }

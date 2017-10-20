@@ -4,6 +4,7 @@
     text-align: center;
     margin-top: 30px;
     padding: 70px 50px;
+
     &__data {
         &--block.login {
             label {
@@ -11,7 +12,9 @@
                 text-transform: uppercase;
                 font-size: 20px;
                 font-weight: bold;
+                outline: none;
             }
+
             input {
                 border: none;
                 border-bottom: 1px solid black;
@@ -19,9 +22,11 @@
                 width: 50%;
                 margin: 30px 0;
                 text-align: center;
-                padding: 8px 0px;
+                padding: 8px 0;
+                outline: none;
             }
         }
+
         &--button {
             &-search {
                 transition: all 1s;
@@ -38,6 +43,8 @@
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 cursor: pointer;
+                outline: none;
+
                 &:hover {
                     color: black;
                     font-weight: bold;
@@ -47,9 +54,25 @@
                 }
             }
         }
+
+        &-img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+
+            img {
+                margin: 0 auto;
+                width: inherit;
+            }
+        }
     }
+    #error-login, #error-login-not-found {
+        display: none;
+    }
+
     #deactivated {
         display: none;
+
         &.active {
             display: block;
         }
