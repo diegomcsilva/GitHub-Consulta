@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import ContentConsult from './components/ContentConsult';
 import ConectGitHub from './services/ConectGitHub';
+import './style/css/general.css';
 
 class App extends Component {
     constructor() {

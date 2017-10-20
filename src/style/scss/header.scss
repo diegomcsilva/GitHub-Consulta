@@ -4,9 +4,18 @@
     top: 0px;
     right: 0px;
     z-index: 10000;
-    margin-right: 50px;
-    margin-left: 50px;
-    background: gray;
+    background-color: #24292e;
+    width: 100%;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    &__logo-git {
+        width: 10%;
+    }
+    h1 {
+        width: 80%;
+    }
 }
 
 .content {
