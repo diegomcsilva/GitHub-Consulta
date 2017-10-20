@@ -1,0 +1,57 @@
+.content {
+    width: 82%;
+    float: right;
+    text-align: center;
+    margin-top: 30px;
+    padding: 70px 50px;
+    &__data {
+        &--block.login {
+            label {
+                display: block;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            input {
+                border: none;
+                border-bottom: 1px solid black;
+                background-color: transparent;
+                width: 50%;
+                margin: 30px 0;
+                text-align: center;
+                padding: 8px 0px;
+            }
+        }
+        &--button {
+            &-search {
+                transition: all 1s;
+                width: 50%;
+                height: 40px;
+                border: none;
+                border-radius: 8px;
+                border: 1px solid transparent;
+                background: #000000;
+                background: linear-gradient(to bottom, #434343, #000000);
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                cursor: pointer;
+                &:hover {
+                    color: black;
+                    font-weight: bold;
+                    background: none;
+                    border: 1px solid black;
+                    transition: all 1s;
+                }
+            }
+        }
+    }
+    #deactivated {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}

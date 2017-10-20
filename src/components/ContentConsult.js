@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ConectGitHub from '../services/ConectGitHub';
 
+import '../style/css/content.css';
+
 class ContentConsult extends Component {
     constructor() {
         super();
@@ -12,28 +14,34 @@ class ContentConsult extends Component {
 
     consultInfos(evento) {
         evento.preventDefault();
-        this.setState({nomeRepo:' '})
-        this.setState({maior:0})
+
+        this.setState({nomeRepo:' '});
+        this.setState({maior:0});
+
+        document.getElementById('img-result').style.display = "none";
+        document.getElementById('deactivated').classList.remove("active");
         // this.state.maior = 0;
         ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
             // console.log(response.data);
             this.setState({lista:response.data});
-        }.bind(this));
+        }.bind(this)).catch(function (erro) {
+            alert('Login não encontrado');
+        });
 
         ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
             // console.log(response.data);
+            document.getElementById('deactivated').classList.add("active");
+            document.getElementById('img-result').style.display = "block";;
             this.setState({repos:response.data});
             for (var i = 0; i < this.state.repos.length; i++) {
                 // console.log(this.state.repos[i].stargazers_count);
                 if ( this.state.repos[i].stargazers_count > this.state.maior ) {
                     this.state.maior = this.state.repos[i].stargazers_count;
                     this.state.nomeRepo = this.state.repos[i].name;
-                    this.setState({nomeRepos:this.state.nomeRepo})
+                    this.setState({nomeRepos:this.state.nomeRepo});
                 }
             }
-        }.bind(this)).error(function() {
-            console.log('erro');
-        });
+        }.bind(this));
 
         console.log(this.state.maior);
         console.log(this.state.nomeRepo);
@@ -53,18 +61,6 @@ class ContentConsult extends Component {
     }
 
     render() {
-        // console.log(this.state.repos.length);
-
-        // for (var i = 0; i < this.state.repos.length; i++) {
-        //     // console.log(this.state.repos[i].stargazers_count);
-        //     if ( this.state.repos[i].stargazers_count > this.state.maior ) {
-        //         this.state.maior = this.state.repos[i].stargazers_count;
-        //         this.state.nomeRepo = this.state.repos[i].name;
-        //
-        //         console.log(this.state.maior);
-        //         console.log(this.state.repos[i]);
-        //     }
-        // }
 
         return (
             <div className="content__data">
@@ -76,9 +72,10 @@ class ContentConsult extends Component {
                     <label></label>
                     <button type="button" className="content__data--button-search" onClick={this.consultInfos}>Buscar</button>
                 </div>
-                <p>{this.state.nomeRepo}</p>
+                <p id="deactivated">Repositório mais popular</p>
+                <h3>{this.state.nomeRepo}</h3>
                 <div>
-                    <img src={this.state.lista.avatar_url} />
+                    <img id="img-result" src={this.state.lista.avatar_url} />
                 </div>
             </div>
         )
