@@ -3,4 +3,7 @@ body {
     background: -webkit-linear-gradient(to bottom, #d7d2cc, #304352);
     background: linear-gradient(to bottom, #d7d2cc, #304352);
     background-attachment: fixed;
+    .content {
+        padding: 70px 50px;
+    }
 }

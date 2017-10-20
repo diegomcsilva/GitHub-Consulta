@@ -43,4 +43,10 @@ See the section about [deployment](#deployment) for more information.
 
 ### `npm run eject`
 
+### `npm run sass`
+Compila o sass
+Rodar antes do npm start para que seja gerado o css.
+Ele roda o watch que fica verificando as alterações realizadas.
+[http://sassbreak.com/watch-your-sass/](http://sassbreak.com/watch-your-sass/)
+
 ## Plugins
