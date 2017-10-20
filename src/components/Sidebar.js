@@ -9,11 +9,10 @@ class Sidebar extends Component {
             <div className="sidebar">
                 <div>
                     <div className="sidebar-right">
-                      <ul>
-                          <li className="facebook"><a href="https://www.facebook.com/profile.php?id=100008973459426" target="_blank"></a></li>
-                          <li className="linkedin"><a href="https://www.linkedin.com/in/diego-marcelo-02aa147a/" target="_blank"></a></li>
-                          <li className="github"><a href="https://github.com/diegomcsilva" target="_blank"></a></li>
-                      </ul>
+                          <a className="homepage" href="https://diegomcsilva.github.io/DieGO/" target="_blank"></a>
+                          <a className="github" href="https://github.com/diegomcsilva" target="_blank"></a>
+                          <a className="linkedin" href="https://www.linkedin.com/in/diego-marcelo-02aa147a/" target="_blank"></a>
+                          <a className="facebook" href="https://www.facebook.com/profile.php?id=100008973459426" target="_blank"></a>
                     </div>
                 </div>
                 <div className="sidebar-left"></div>

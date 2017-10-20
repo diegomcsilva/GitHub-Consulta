@@ -1,9 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
+  font-family: 'Roboto', sans-serif;
   background: #304352;
   background: -webkit-linear-gradient(to bottom, #d7d2cc, #304352);
   background: linear-gradient(to bottom, #d7d2cc, #304352);
   background-attachment: fixed; }
   body .content {
+    width: 82%;
+    float: right;
+    text-align: center;
+    margin-top: 30px;
     padding: 70px 50px; }
+    body .content__data--block.login label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: bold; }
+    body .content__data--block.login input {
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+      width: 50%;
+      margin: 30px 0;
+      text-align: center;
+      padding: 8px 0px; }
+    body .content__data--button-search {
+      transition: all 1s;
+      width: 50%;
+      height: 40px;
+      border: none;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: #000000;
+      background: linear-gradient(to bottom, #434343, #000000);
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer; }
+      body .content__data--button-search:hover {
+        color: black;
+        font-weight: bold;
+        background: none;
+        border: 1px solid black;
+        transition: all 1s; }
 
 /*# sourceMappingURL=general.css.map */

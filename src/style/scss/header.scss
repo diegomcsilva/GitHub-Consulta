@@ -1,11 +1,12 @@
 .header {
+    height: 80px;
+    width: 100%;
     position: fixed;
     left: 0px;
     top: 0px;
     right: 0px;
     z-index: 10000;
     background-color: #24292e;
-    width: 100%;
     color: rgba(255,255,255,0.75);
     text-align: center;
     display: flex;
