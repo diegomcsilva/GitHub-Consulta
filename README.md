@@ -6,10 +6,14 @@ Projeto que tem como objetivo consultar a API do GitHub e obeter informações.
 A documentação completa se encontra em [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Dependências
-
+ - React
+ - NodeJS
+ - sass
+ 
 ## DevDependencies
-
+    - Axios
 ## Metodologia
+    - Metodologia Bem
 
 ## Diretórios de trabalho
 
