@@ -7,7 +7,7 @@ class ContentConsult extends Component {
 
     constructor() {
         super();
-        this.state = {lista: [], repos: [], login: ' ', maior: 0, nomeRepo: ' ', followers: ' ', following: ' ', email: ' ', bio: ' '};
+        this.state = {lista: [], repos: [], login: ' ', maior: 0, nomeRepo: ' ', nomesRepo: ' ', followers: ' ', following: ' ', email: ' ', bio: ' '};
         this.consultInfos = this.consultInfos.bind(this);
         this.setLogin = this.setLogin.bind(this);
         this.setEmail = this.setEmail.bind(this);
@@ -53,6 +53,7 @@ class ContentConsult extends Component {
 
             // Pega o login e faz a consulta do repositório no github
             ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
+                console.log(response);
                 statusResult.classList.add("active"),
                 document.getElementById('img-result').style.display = "block";
                 this.setState({repos:response.data});
@@ -63,13 +64,16 @@ class ContentConsult extends Component {
                         this.state.nomeRepo = this.state.repos[i].name;
                         this.setState({nomeRepos:this.state.nomeRepo});
                     }
+                    this.setState({nomesRepos:this.state.nomeRepo});
+                    console.log(this.state.nomesRepos);
+                    // document.getElementById("list-repos").appendChild({this.state.nomesRepos});
+                    // this.state.repos[i]
                 }
             }.bind(this));
 
             // console.log(this.state.maior);
             // console.log(this.state.nomeRepo);
         }
-
     }
 
     setLogin(evento) {
@@ -101,6 +105,11 @@ class ContentConsult extends Component {
                     <h3>{this.state.following} </h3>
                     <h3>{this.state.bio} </h3>
                     <h3>{this.state.email} </h3>
+                    <div className="list-repos">
+                        <ul id="list-repos">
+
+                        </ul>
+                    </div>
                 </div>
                 </div>
                 <div id="error-login">Informe o login</div>
