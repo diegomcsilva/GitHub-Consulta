@@ -2,7 +2,7 @@
   width: 82%;
   float: right;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
   padding: 70px 50px; }
   .content__data--block.login label {
     display: block;
@@ -58,5 +58,26 @@
     display: none; }
     .content #deactivated.active {
       display: block; }
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    padding: 0px;
+    margin-top: 110px; }
+    .content__data--block.login input {
+      width: 80%;
+      margin: 50px 0 30px; }
+    .content__data--button-search {
+      width: 80%; }
+      .content__data--button-search:hover {
+        background: #000000;
+        background: linear-gradient(to bottom, #434343, #000000);
+        color: white; }
+    .content__data #error-login, .content__data #error-login-not-found {
+      width: 90%;
+      margin-top: 70px; }
+    .content #img-result {
+      width: 100%;
+      margin-bottom: 40px; } }
 
 /*# sourceMappingURL=content.css.map */

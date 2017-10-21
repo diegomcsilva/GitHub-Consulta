@@ -18,4 +18,8 @@
   .header h1 {
     width: 80%; }
 
+@media (max-width: 768px) {
+  .header {
+    padding-left: 15px; } }
+
 /*# sourceMappingURL=header.css.map */

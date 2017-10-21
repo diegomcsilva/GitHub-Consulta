@@ -7,7 +7,7 @@ class ContentConsult extends Component {
 
     constructor() {
         super();
-        this.state = {lista: [], repos: [], login: '', maior: 0, nomeRepo: ''};
+        this.state = {lista: [], repos: [], login: ' ', maior: 0, nomeRepo: ' ', followers: ' ', following: ' ', email: ' ', bio: ' '};
         this.consultInfos = this.consultInfos.bind(this);
         this.setLogin = this.setLogin.bind(this);
         this.setEmail = this.setEmail.bind(this);
@@ -41,7 +41,12 @@ class ContentConsult extends Component {
 
             // Pega o login e faz a consulta no github
             ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
+                console.log(response);
                 this.setState({lista:response.data});
+                this.setState({followers:response.data.followers});
+                this.setState({following:response.data.following});
+                this.setState({email:response.data.email});
+                this.setState({bio:response.data.bio});
             }.bind(this)).catch(function (erro) {
                 erroLoginNottFound.style.display = "block";
             });
@@ -92,6 +97,10 @@ class ContentConsult extends Component {
                     <h3>{this.state.nomeRepo}</h3>
                     <div className="content__data-img">
                     <img id="img-result" src={this.state.lista.avatar_url} />
+                    <h3>{this.state.followers} </h3>
+                    <h3>{this.state.following} </h3>
+                    <h3>{this.state.bio} </h3>
+                    <h3>{this.state.email} </h3>
                 </div>
                 </div>
                 <div id="error-login">Informe o login</div>

@@ -2,7 +2,7 @@
     width: 82%;
     float: right;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 80px;
     padding: 70px 50px;
 
     &__data {
@@ -79,6 +79,39 @@
 
         &.active {
             display: block;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        width: 100%;
+        padding: 0px;
+        margin-top: 110px;
+        &__data {
+            &--block.login input {
+                width: 80%;
+                margin: 50px 0 30px;
+            }
+            &--button {
+                &-search {
+                    width: 80%;
+                    &:hover {
+                        background: #000000;
+                        background: linear-gradient(to bottom, #434343, #000000);
+                        color: white;
+                    }
+                }
+            }
+            #error-login, #error-login-not-found {
+                width: 90%;
+                margin-top: 70px;
+            }
+        }
+        #img-result {
+            width: 100%;
+            margin-bottom: 40px;
         }
     }
 }
