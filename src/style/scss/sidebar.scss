@@ -74,6 +74,7 @@
             display: none;
         }
         &.active {
+            z-index: 999;
             position: fixed;
             width: 100%;
             top: 0px;
