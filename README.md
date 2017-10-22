@@ -4,6 +4,8 @@
 Projeto que tem como objetivo consultar a API do GitHub e obter informações de um usuário.
 
 O projeto pode ser acesso em [https://0p57rrv53l.codesandbox.io/](https://0p57rrv53l.codesandbox.io/).
+OBS: Caso seja alterado alguma coisa, será necessário realizar um novo Deploy e  com isso a url de acesso ira mudar.
+O comando é `codesandbox ./` e será informado a nova url.
 
 A documentação completa se encontra em [Create React App](https://github.com/facebookincubator/create-react-app).
 
