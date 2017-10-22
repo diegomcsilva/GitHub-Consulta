@@ -1,21 +1,33 @@
 
 # GitGub-Consulta
 
-Projeto que tem como objetivo consultar a API do GitHub e obeter informações.
+Projeto que tem como objetivo consultar a API do GitHub e obter informações de um usuário.
+
+O projeto pode ser acesso em [https://0p57rrv53l.codesandbox.io/](https://0p57rrv53l.codesandbox.io/).
 
 A documentação completa se encontra em [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Dependências
- - React
- - NodeJS
- - sass
- 
+- [Node](https://nodejs.org/en/)
+- [Gulp](https://gulpjs.com/)
+- [ReactJS](https://reactjs.org/)
+
 ## DevDependencies
-    - Axios
+- "axios": "^0.16.2","
+
 ## Metodologia
-    - Metodologia Bem
+- Metodologia Bem
+- Componetização (ReactJS)
 
 ## Diretórios de trabalho
+
+- HTML - `./public/`
+- SCSS - `src/style/scss/`
+- css - `src/style/css/`
+- JS - `src/js`
+- JS/comonents - `src/conponents`
+- JS/services - `src/services`
+- Imagens - `src/imagens`
 
 ## Instalando dependências
 
@@ -45,12 +57,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
 
-### `npm run eject`
-
 ### `npm run sass`
+
 Compila o sass
-Rodar antes do npm start para que seja gerado o css.
+Utilizar caso seja alterado o css.
 Ele roda o watch que fica verificando as alterações realizadas.
 [http://sassbreak.com/watch-your-sass/](http://sassbreak.com/watch-your-sass/)
-
-## Plugins

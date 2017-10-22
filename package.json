@@ -1,19 +1,32 @@
 {
   "name": "github-consulta",
   "version": "0.1.0",
+  "description": "Consulto à API do github",
+  "main": "./src/index.js",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "0.9.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+     "axios": "^0.16.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "sass": "sass --watch src/style/scss:src/style/css"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegomcsilva/GitHub-Consulta/"
+  },
+  "author": "Diego Marcelo Costa da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegomcsilva/GitHub-Consulta"
+  },
+  "homepage": "https://0p57rrv53l.codesandbox.io/"
 }
