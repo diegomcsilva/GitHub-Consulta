@@ -74,6 +74,7 @@
             display: none;
         }
         &.active {
+            position: fixed;
             width: 100%;
             top: 0px;
             height: auto;
@@ -114,64 +115,64 @@
             position: absolute;
             top: 30px;
             left: 15px;
-            -webkit-animation: rotateButton 10s infinite; /* Safari 4+ */
-            -moz-animation:    rotateButton 10s infinite; /* Fx 5+ */
-            -o-animation:      rotateButton 10s infinite; /* Opera 12+ */
-            animation:         rotateButton 10s infinite; /* IE 10+, Fx 29+ */
+            -webkit-animation: rotateButton 5s infinite; /* Safari 4+ */
+            -moz-animation:    rotateButton 5s infinite; /* Fx 5+ */
+            -o-animation:      rotateButton 5s infinite; /* Opera 12+ */
+            animation:         rotateButton 5s infinite; /* IE 10+, Fx 29+ */
             box-shadow: 0 0 15px 0px black;
         }
     }
 }
 
 @-webkit-keyframes rotateButton {
-  0%   { opacity: 0; transform: rotate(0deg);}
-  10%   { opacity: 0.2; transform: rotate(20deg);}
-  20%   { opacity: 0.4; transform: rotate(40deg);}
-  30%   { opacity: 0.6; transform: rotate(60deg);}
-  40%   { opacity: 0.8; transform: rotate(80deg);}
-  50%   { opacity: 1; transform: rotate(100deg);}
-  60%   { opacity: 0.8; transform: rotate(120deg);}
-  70%   { opacity: 0.6; transform: rotate(140deg);}
-  80%   { opacity: 0.4; transform: rotate(160deg);}
-  90%   { opacity: 0.2; transform: rotate(180deg);}
-  100%   { opacity: 0; transform: rotate(200deg);}
+  0%   { transform: rotate(0deg);}
+  /*10%   { transform: rotate(20deg);}
+  20%   { transform: rotate(40deg);}
+  30%   { transform: rotate(60deg);}
+  40%   { transform: rotate(80deg);}*/
+  50%   { transform: rotate(200deg);}
+  /*60%   { transform: rotate(120deg);}
+  70%   { transform: rotate(140deg);}
+  80%   { transform: rotate(160deg);}
+  90%   { transform: rotate(180deg);}*/
+  100%   { transform: rotate(0deg);}
 }
 @-moz-keyframes rotateButton {
-    0%   { opacity: 0; transform: rotate(0deg);}
-    10%   { opacity: 0.2; transform: rotate(20deg);}
-    20%   { opacity: 0.4; transform: rotate(40deg);}
-    30%   { opacity: 0.6; transform: rotate(60deg);}
-    40%   { opacity: 0.8; transform: rotate(80deg);}
-    50%   { opacity: 1; transform: rotate(100deg);}
-    60%   { opacity: 0.8; transform: rotate(120deg);}
-    70%   { opacity: 0.6; transform: rotate(140deg);}
-    80%   { opacity: 0.4; transform: rotate(160deg);}
-    90%   { opacity: 0.2; transform: rotate(180deg);}
-    100%   { opacity: 0; transform: rotate(200deg);}
+    0%   { transform: rotate(0deg);}
+    /*10%   { transform: rotate(20deg);}
+    20%   { transform: rotate(40deg);}
+    30%   { transform: rotate(60deg);}
+    40%   { transform: rotate(80deg);}*/
+    50%   { transform: rotate(200deg);}
+    /*60%   { transform: rotate(120deg);}
+    70%   { transform: rotate(140deg);}
+    80%   { transform: rotate(160deg);}
+    90%   { transform: rotate(180deg);}*/
+    100%   { transform: rotate(0deg);}
 }
 @-o-keyframes rotateButton {
-    0%   { opacity: 0; transform: rotate(0deg);}
-    10%   { opacity: 0.2; transform: rotate(20deg);}
-    20%   { opacity: 0.4; transform: rotate(40deg);}
-    30%   { opacity: 0.6; transform: rotate(60deg);}
-    40%   { opacity: 0.8; transform: rotate(80deg);}
-    50%   { opacity: 1; transform: rotate(100deg);}
-    60%   { opacity: 0.8; transform: rotate(120deg);}
-    70%   { opacity: 0.6; transform: rotate(140deg);}
-    80%   { opacity: 0.4; transform: rotate(160deg);}
-    90%   { opacity: 0.2; transform: rotate(180deg);}
-    100%   { opacity: 0; transform: rotate(200deg);}
+    0%   { transform: rotate(0deg);}
+    /*10%   { transform: rotate(20deg);}
+    20%   { transform: rotate(40deg);}
+    30%   { transform: rotate(60deg);}
+    40%   { transform: rotate(80deg);}*/
+    50%   { transform: rotate(200deg);}
+    /*60%   { transform: rotate(120deg);}
+    70%   { transform: rotate(140deg);}
+    80%   { transform: rotate(160deg);}
+    90%   { transform: rotate(180deg);}*/
+    100%   { transform: rotate(0deg);}
 }
 @keyframes rotateButton {
-    0%   { opacity: 0; transform: rotate(0deg);}
-    10%   { opacity: 0.2; transform: rotate(20deg);}
-    20%   { opacity: 0.4; transform: rotate(40deg);}
-    30%   { opacity: 0.6; transform: rotate(60deg);}
-    40%   { opacity: 0.8; transform: rotate(80deg);}
-    50%   { opacity: 1; transform: rotate(100deg);}
-    60%   { opacity: 0.8; transform: rotate(120deg);}
-    70%   { opacity: 0.6; transform: rotate(140deg);}
-    80%   { opacity: 0.4; transform: rotate(160deg);}
-    90%   { opacity: 0.2; transform: rotate(180deg);}
-    100%   { opacity: 0; transform: rotate(200deg);}
+    0%   { transform: rotate(0deg);}
+    /*10%   { transform: rotate(20deg);}
+    20%   { transform: rotate(40deg);}
+    30%   { transform: rotate(60deg);}
+    40%   { transform: rotate(80deg);}*/
+    50%   { transform: rotate(200deg);}
+    /*60%   { transform: rotate(120deg);}
+    70%   { transform: rotate(140deg);}
+    80%   { transform: rotate(160deg);}
+    90%   { transform: rotate(180deg);}*/
+    100%   { transform: rotate(0deg);}
 }

@@ -42,12 +42,22 @@
       border: 1px solid black;
       transition: all 1s; }
   .content__data-img {
-    width: 50%;
     margin: 0 auto;
     height: auto; }
     .content__data-img img {
+      width: 50%;
       margin: 0 auto;
       width: inherit; }
+    .content__data-img #list-repos {
+      display: flex;
+      flex-direction: column;
+      padding: 0px; }
+      .content__data-img #list-repos a {
+        color: black;
+        text-decoration: none; }
+        .content__data-img #list-repos a:hover {
+          box-shadow: inset 0 0 5px 0px black;
+          padding: 5px; }
   .content #error-login, .content #error-login-not-found {
     display: none;
     border-bottom: 1px solid white;
@@ -58,24 +68,37 @@
     display: none; }
     .content #deactivated.active {
       display: block; }
+      .content #deactivated.active .deactivatedSpan {
+        display: block;
+        position: relative;
+        font-weight: bold;
+        font-size: 19px; }
+        .content #deactivated.active .deactivatedSpan::before, .content #deactivated.active .deactivatedSpan::after {
+          content: "+";
+          width: auto;
+          padding: 10px; }
 
 @media (max-width: 768px) {
   .content {
     width: 100%;
     padding: 0px;
     margin-top: 110px; }
-    .content__data--block.login input {
-      width: 80%;
-      margin: 50px 0 30px; }
-    .content__data--button-search {
-      width: 80%; }
-      .content__data--button-search:hover {
-        background: #000000;
-        background: linear-gradient(to bottom, #434343, #000000);
-        color: white; }
-    .content__data #error-login, .content__data #error-login-not-found {
-      width: 90%;
-      margin-top: 70px; }
+    .content__data {
+      padding-bottom: 35px; }
+      .content__data-img #list-repos a {
+        padding: 8px 0; }
+      .content__data--block.login input {
+        width: 80%;
+        margin: 50px 0 30px; }
+      .content__data--button-search {
+        width: 80%; }
+        .content__data--button-search:hover {
+          background: #000000;
+          background: linear-gradient(to bottom, #434343, #000000);
+          color: white; }
+      .content__data #error-login, .content__data #error-login-not-found {
+        width: 90%;
+        margin-top: 70px; }
     .content #img-result {
       width: 100%;
       margin-bottom: 40px; } }

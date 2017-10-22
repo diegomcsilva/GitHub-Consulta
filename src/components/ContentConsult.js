@@ -7,7 +7,7 @@ class ContentConsult extends Component {
 
     constructor() {
         super();
-        this.state = {lista: [], repos: [], login: ' ', maior: 0, nomeRepo: ' ', nomesRepo: ' ', followers: ' ', following: ' ', email: ' ', bio: ' '};
+        this.state = {lista: [], listaREpo: [], repos: [], login: ' ', maior: 0, nomeRepo: ' ', nomesRepo: [], followers: ' ', following: ' ', email: ' ', bio: ' ', urlRepo: ''};
         this.consultInfos = this.consultInfos.bind(this);
         this.setLogin = this.setLogin.bind(this);
         this.setEmail = this.setEmail.bind(this);
@@ -26,7 +26,7 @@ class ContentConsult extends Component {
             setMaiorStar = this.setState({maior:0});
 
         // Verificar se o campo está vázio
-        if (document.getElementById('login').value === "") {
+        if (document.getElementById('login').value === " ") {
             erroLoginNottFound.style.display = "none";
             erroLogin.style.display = "block";
             statusResult.classList.remove("active");
@@ -41,33 +41,50 @@ class ContentConsult extends Component {
 
             // Pega o login e faz a consulta no github
             ConectGitHub.getByUserLogin(this.state.login).then(function(response) {
-                console.log(response);
+                // console.log(response);
                 this.setState({lista:response.data});
                 this.setState({followers:response.data.followers});
                 this.setState({following:response.data.following});
                 this.setState({email:response.data.email});
                 this.setState({bio:response.data.bio});
+
             }.bind(this)).catch(function (erro) {
                 erroLoginNottFound.style.display = "block";
             });
 
             // Pega o login e faz a consulta do repositório no github
             ConectGitHub.getReposByLogin(this.state.login).then(function(response) {
-                console.log(response);
+
+                // console.log(response);
                 statusResult.classList.add("active"),
                 document.getElementById('img-result').style.display = "block";
                 this.setState({repos:response.data});
+
                 for (var i = 0; i < this.state.repos.length; i++) {
                     // console.log(this.state.repos[i].stargazers_count);
+
                     if ( this.state.repos[i].stargazers_count > this.state.maior ) {
                         this.state.maior = this.state.repos[i].stargazers_count;
                         this.state.nomeRepo = this.state.repos[i].name;
-                        this.setState({nomeRepos:this.state.nomeRepo});
+                        this.setState({nomeRepo:this.state.nomeRepo});
                     }
-                    this.setState({nomesRepos:this.state.nomeRepo});
-                    console.log(this.state.nomesRepos);
-                    // document.getElementById("list-repos").appendChild({this.state.nomesRepos});
-                    // this.state.repos[i]
+
+                    this.state.nomesRepo = this.state.repos[i].name;
+                    this.state.urlRepo = this.state.repos[i].html_url;
+                    this.setState({nomesRepo:this.state.nomesRepo});
+                    this.setState({urlRepo:this.state.urlRepo});
+
+                    var nomesRepo = this.state.nomesRepo;
+                    var urlRepo = this.state.urlRepo;
+
+                    console.log(this.state.urlRepo);
+
+                    var wrapperRepo= document.createElement('a');
+                    wrapperRepo.innerHTML = nomesRepo;
+                    wrapperRepo.setAttribute("href", this.state.urlRepo);
+                    console.log(wrapperRepo)
+
+                    document.getElementById('list-repos').append(wrapperRepo);
                 }
             }.bind(this));
 
@@ -101,14 +118,14 @@ class ContentConsult extends Component {
                     <h3>{this.state.nomeRepo}</h3>
                     <div className="content__data-img">
                     <img id="img-result" src={this.state.lista.avatar_url} />
-                    <h3>{this.state.followers} </h3>
-                    <h3>{this.state.following} </h3>
-                    <h3>{this.state.bio} </h3>
-                    <h3>{this.state.email} </h3>
+                    <h3><span className="deactivatedSpan">Seguidores</span>{this.state.followers} </h3>
+                    <h3><span className="deactivatedSpan">Seguindo</span>{this.state.following} </h3>
+                    <h3><span className="deactivatedSpan">Bio</span>{this.state.bio} </h3>
+                    <h3><span className="deactivatedSpan">Email</span>{this.state.email} </h3>
                     <div className="list-repos">
-                        <ul id="list-repos">
-
-                        </ul>
+                        <span className="deactivatedSpan">Lista de repositórios</span>
+                        <div id="list-repos">
+                        </div>
                     </div>
                 </div>
                 </div>
