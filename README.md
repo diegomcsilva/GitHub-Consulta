@@ -9,7 +9,6 @@ A documentação completa se encontra em [Create React App](https://github.com/f
 
 ## Dependências
 - [Node](https://nodejs.org/en/)
-- [Gulp](https://gulpjs.com/)
 - [ReactJS](https://reactjs.org/)
 
 ## DevDependencies
